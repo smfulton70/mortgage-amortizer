@@ -1,0 +1,43 @@
+<p>
+	<strong>Amount:</strong>
+	<%= @morgage.amount %>
+</p>
+
+<p>
+	<strong>Timeframe in years:</strong>
+	<%= @morgage.timeframe_in_years %>
+</p>
+
+<p>
+	<strong>Annual interest rate:</strong>
+	<%= @morgage.annual_interest_rate %>
+</p>
+
+<table cellpadding="5" cellspacing="5" border="0">
+	<tr>
+		<th>Payment Date</th>
+		<th>Payment</th>
+		<th>Interest Paid</th>
+		<th>Principal Paid</th>
+		<th>Cumulative Interest</th>
+		<th>Remaining principal</th>
+	</tr>
+	<% (@morgage.timeframe_in_years*12).times do |month| %>
+
+	<tr>
+		<td><%=month%></td>
+		<td><%=@morgage.monthly_payment%></td>
+		<td><%=@morgage.get_monthly_interest%></td>
+		<td><%=@morgage.get_monthly_principal%>
+		<td><%=@morgage.get_cumulative_interest%></td>
+		<td><%=@morgage.get_remaining_principal%></td>
+	</tr>
+	<% end %>	
+
+
+</table>
+
+
+
+
+

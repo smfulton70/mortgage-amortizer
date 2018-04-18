@@ -1,0 +1,23 @@
+<h1>Listing all mortgages</h1>
+
+<table>
+	<tr>
+		<th>Amount</th>
+		<th>Timeframe in years</th>
+		<th>Annual interest rate</th>
+		<th>Link to mortgage</th>
+	</tr>
+
+	<% @morgages.each do |morgage| %>
+	<tr>
+		<td><%= morgage.amount %></td>
+		<td><%= morgage.timeframe_in_years %></td>
+		<td><%= morgage.annual_interest_rate %></td>
+		<td><%= link_to 'Show', morgage_path(morgage) %></td>
+		<td><%= link_to 'Edit', edit_morgage_path(morgage) %></td>
+		<td><%= link_to 'Destroy', morgage_path(morgage),
+		method: :delete,
+		data: {confirm: 'Are you sure about deleting this mortgage from database?'} %></td>
+	</tr>
+	<% end %>
+</table>

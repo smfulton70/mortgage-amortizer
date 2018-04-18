@@ -1,0 +1,34 @@
+<%= form_with model: @morgage, local: true do |form| %>
+<% if @morgage.errors.any? %>
+	<div id="error_explanation">
+		<h2>
+			<%= pluralize(@morgage.errors.count, "error") %> prohibited this morgage from being saved:
+		</h2>
+		<ul>
+			<% @morgage.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>
+
+
+<p>
+	<%= form.label :amount %>
+	<%= form.text_field :amount %>
+</p>
+
+<p>
+	<%= form.label :timeframe_in_years %>
+	<%= form.text_field :timeframe_in_years %>
+</p>
+
+<p>
+	<%= form.label :annual_interest_rate %>
+	<%= form.text_field :annual_interest_rate %>
+</p>
+<p>
+	<%= form.submit %>
+</p>
+
+<% end %>
